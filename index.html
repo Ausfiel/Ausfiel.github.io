@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Лаба 3 - Задание 1</title>
+</head>
+<body>
+
+    <script>
+
+function min(a, b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+let firstNumber = prompt("Введите первое число:");
+let secondNumber = prompt("Введите второе число:");
+
+let num1 = parseFloat(firstNumber);
+let num2 = parseFloat(secondNumber);
+
+let result = min(num1, num2);
+
+alert("Минимальное число: " + result);
+
+console.log("Первое: " + num1 + ", Второе: " + num2 + ", Минимум: " + result);
+    </script>
+
+    <script>
+// Задание 2 (новый блок)
+        let name = "Станислав";  
+        let admin;                
+
+        admin = name;             
+
+        alert("admin = " + admin);   
+        console.log("Задание 2: admin = " + admin);  
+    </script>
+
+<script>
+    let userAge;
+    let confirmed = false;
+    
+    do {
+        userAge = prompt("Сколько вам лет?");
+        if (userAge === null) {
+            continue;
+        }
+        userAge = Number(userAge);
+        if (!isNaN(userAge)) {
+            // Уточняем
+            let answer = confirm("Вы уверены, что вам " + userAge + " лет?");
+            if (answer === true) {
+                confirmed = true;
+            }
+        }
+    } while (userAge === null || isNaN(userAge) || !confirmed);
+    
+    alert("Спасибо! Вам " + userAge + " лет.");
+</script>
+    <style>
+ 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .resume {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            padding: 25px;
+            border: 1px solid #ddd;
+        }
+        
+        h1, h2 {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            font-size: 24px;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
+        }
+        
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2980b9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 10px 0;
+        }
+        
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+        
+        button:hover {
+            background-color: #1abc9c;
+            transform: scale(1.02);
+        }
+        
+        .surname {
+    font-weight: normal;
+    color: inherit;
+    border: none;
+    padding: 0;
+    display: inline;
+    margin: 0;
+}
+        
+        .info {
+            text-shadow: 1px 1px 0 #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ВАШИ СТАРЫЕ ЗАДАНИЯ 1,2,3 ОСТАЮТСЯ, НО ИХ HTML-ЧАСТЬ УЖЕ ЕСТЬ -->
+    <!-- ДАЛЕЕ ДОБАВЛЯЕМ РЕЗЮМЕ -->
+
+    <div class="resume">
+        <h2>Моё резюме</h2>
+        
+        <!-- Фото (заглушка) -->
+        <img class="photo" src="e823e08eb26ea8cdb30f4174bebcebc7.jpg" alt="Фото">
+        
+        <p><strong>Имя:</strong> Станислав</p>
+        <p><strong>Фамилия:</strong> <span id="lastName" class="surname">Наумов</span></p>
+        
+        <!-- Поле ввода для новой фамилии -->
+        <input type="text" id="newSurname" placeholder="Введите новую фамилию">
+        
+        <!-- Кнопка для изменения фамилии -->
+        <button id="changeSurnameBtn">Изменить фамилию</button>
+        
+        <!-- Кнопка для рандомного фона -->
+        <button id="randomBgBtn">Случайный фон страницы</button>
+    </div>
+
+    <script>
+    
+        const changeBtn = document.getElementById('changeSurnameBtn');
+        const surnameSpan = document.getElementById('lastName');
+        const surnameInput = document.getElementById('newSurname');
+        
+        changeBtn.addEventListener('click', function() {
+            let newSurname = surnameInput.value.trim();
+            if (newSurname !== "") {
+                surnameSpan.textContent = newSurname;
+                surnameInput.value = ""; // очищаем поле
+            } else {
+                alert("Введите фамилию!");
+            }
+        });
+        
+
+        const randomBtn = document.getElementById('randomBgBtn');
+        randomBtn.addEventListener('click', function() {
+            // Генерируем случайный цвет
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+    
+
+</body>
+</html>
